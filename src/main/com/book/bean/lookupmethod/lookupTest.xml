@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="teacher" class="book.bean.lookupmethod.Teacher"></bean>
+    <bean id="student" class="book.bean.lookupmethod.Student">
+        <replaced-method name="showMe" replacer="methodReplacer"></replaced-method>
+    </bean>
+
+    <bean id="methodReplacer" class="book.bean.lookupmethod.TestMethodReplacer"></bean>
+
+    <bean id="getBeanTest" class="book.bean.lookupmethod.GetBeanTest">
+        <lookup-method name="getBean" bean="student"></lookup-method>
+    </bean>
+</beans>
